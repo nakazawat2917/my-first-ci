@@ -1,0 +1,10 @@
+name: My First CI  # この設定の名前
+
+on: [push]         # 「ファイルを保存（Push）した時」に実行するという合図
+
+jobs:
+  say-hello:       # お仕事の名前
+    runs-on: ubuntu-latest  # GitHubが用意してくれる仮想のパソコンで動かす
+    steps:
+      - name: Greet
+        run: echo "Hello, World! CIが正常に動きました！"
