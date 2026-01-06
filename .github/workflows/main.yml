@@ -1,10 +1,19 @@
-name: My First CI  # この設定の名前
+name: Python Test CI
 
-on: [push]         # 「ファイルを保存（Push）した時」に実行するという合図
+on: [push]
 
 jobs:
-  say-hello:       # お仕事の名前
-    runs-on: ubuntu-latest  # GitHubが用意してくれる仮想のパソコンで動かす
+  test-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Greet
-        run: echo "Hello, World! CIが正常に動きました！"
+      - name: コードをダウンロード
+        uses: actions/checkout@v4
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: テストを実行
+        run: pytest test_calc.py || python3 -m pytest test_calc.py
+      
