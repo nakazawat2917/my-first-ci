@@ -16,4 +16,3 @@ jobs:
 
       - name: テストを実行
         run: pytest test_calc.py || python3 -m pytest test_calc.py
-      
