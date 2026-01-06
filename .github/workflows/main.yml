@@ -6,13 +6,13 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
     steps:
-      - name: コードをダウンロード
-        uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4  # GitHubからプログラムをコピーしてくる
 
-      - name: Pythonを準備
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: テストを実行
-        run: pytest test_calc.py || python3 -m pytest test_calc.py
+      - name: Run test
+        run: python calc.py  # プログラムを実行してチェック！
